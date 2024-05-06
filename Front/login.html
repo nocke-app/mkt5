@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso à Plataforma de Compra de Créditos</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Adiciona posição relativa para que o z-index funcione */
+    z-index: 1; /* Garante que o logo fique acima do fundo da página */
+}
+
+.logo {
+    width: 700px; /* Ajuste conforme necessário */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)); /* Adiciona uma sombra ao logo */
+    transition: filter 0.3s ease; /* Adiciona uma transição suave */
+    position: relative; /* Adiciona posição relativa para z-index funcionar */
+}
+
+.logo:hover {
+    filter: brightness(1.2) drop-shadow(0 0 05px rgba(255, 255, 255, 0.9)); /* Aumenta o brilho e a intensidade da sombra quando o mouse passa por cima */
+}
+
+
+</style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-container">
+            <img src="logo1.png" alt="Logo da sua empresa" class="logo">
+        </div>
+        <div class="banner"></div>
+        <div class="login-content">
+            <h2 class="login-heading">Bem-vindo de volta!</h2>
+            <form class="login-form" onsubmit="return validateLogin()">
+                <div class="form-group">
+                    <input type="email" class="form-input" id="email" placeholder="Seu email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" id="senha" placeholder="Sua senha" required>
+                    <span class="password-toggle"><i class="fas fa-eye"></i></span>
+                </div>
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+            <p class="signup-link">Não tem uma conta? <a href="registro.html">Registre-se aqui</a></p>
+        </div>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var email = document.getElementById('email').value;
+            var senha = document.getElementById('senha').value;
+    
+            // Verifica se o email e a senha correspondem às credenciais esperadas
+            if ((email === 'desantis.developer@gmail.com' && senha === 'P@ssw0rd') ||
+                (email === 'ana@mkt5.com' && senha === 'ana123') ||
+                (email === 'antonio@mkt5.com' && senha === 'antonio123') ||
+                (email === 'usuario@mkt.com' && senha === 'usuario123')) {
+                    alert('Bem-vindo! Por favor, esteja ciente de que as compras no marketplace estão sujeitas a impostos brasileiros. Ao prosseguir, você concorda com esses termos.\n\n[ ] Estou ciente e concordo com os impostos brasileiros sobre as compras no marketplace.\n\n[OK] Prosseguir');
+                window.location.href = 'dashboard.html'; // Redireciona para a página de dashboard
+                return false; // Impede o envio do formulário
+            } else {
+                alert('Credenciais inválidas. Por favor, tente novamente.');
+                return false; // Impede o envio do formulário
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

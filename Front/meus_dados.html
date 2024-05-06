@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Dados - Plataforma de Compra de Créditos</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="dados.css"> <!-- Arquivo CSS específico para a tela de Meus Dados -->
+    <!-- Biblioteca de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <!-- Ícone de casa para a página inicial -->
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Formas de Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <br/>
+    <main>
+        <section class="container">
+            <h2>Meus Dados</h2>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Informações Pessoais</h5>
+                    <p id="nome"><strong>Nome:</strong> João da Silva</p>
+                    <p id="email"><strong>Email:</strong> joao@example.com</p>
+                    <p id="telefone"><strong>Telefone:</strong> (11) 1234-5678</p>
+                    <p id="endereco"><strong>Endereço:</strong> Rua ABC, 123 - São Paulo, SP</p>
+                </div>
+            </div>
+
+            <br>
+            <h3>Configurações da Conta</h3>
+            <button type="button" class="btn btn-primary" id="editar-informacoes">Editar Informações</button>
+            <button type="button" class="btn btn-success d-none" id="salvar-alteracoes">Salvar Alterações</button>
+
+            <br/>
+            <button type="button" class="btn btn-danger">Excluir Conta</button>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="about.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termo.html">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Crédito em Nuvem</p></center>
+    </footer>
+
+    <script>
+        // Adicione um evento de clique ao botão "Editar Informações"
+        document.getElementById('editar-informacoes').addEventListener('click', function() {
+            // Obtém os parágrafos que contêm as informações pessoais
+            const nome = document.getElementById('nome');
+            const email = document.getElementById('email');
+            const telefone = document.getElementById('telefone');
+            const endereco = document.getElementById('endereco');
+            
+            // Transforma os parágrafos em campos de entrada para edição
+            nome.innerHTML = '<strong>Nome:</strong> <input type="text" value="João da Silva">';
+            email.innerHTML = '<strong>Email:</strong> <input type="email" value="joao@example.com">';
+            telefone.innerHTML = '<strong>Telefone:</strong> <input type="tel" value="(11) 1234-5678">';
+            endereco.innerHTML = '<strong>Endereço:</strong> <input type="text" value="Rua ABC, 123 - São Paulo, SP">';
+            
+            // Exibe o botão "Salvar Alterações" e oculta o botão "Editar Informações"
+            document.getElementById('salvar-alteracoes').classList.remove('d-none');
+            document.getElementById('editar-informacoes').classList.add('d-none');
+        });
+
+        // Adicione um evento de clique ao botão "Salvar Alterações"
+        document.getElementById('salvar-alteracoes').addEventListener('click', function() {
+            // Obtém os valores dos campos de entrada editados
+            const novoNome = document.querySelector('#nome input').value;
+            const novoEmail = document.querySelector('#email input').value;
+            const novoTelefone = document.querySelector('#telefone input').value;
+            const novoEndereco = document.querySelector('#endereco input').value;
+            
+            // Atualiza os parágrafos com os novos valores
+            document.getElementById('nome').innerHTML = `<strong>Nome:</strong> ${novoNome}`;
+            document.getElementById('email').innerHTML = `<strong>Email:</strong> ${novoEmail}`;
+            document.getElementById('telefone').innerHTML = `<strong>Telefone:</strong> ${novoTelefone}`;
+            document.getElementById('endereco').innerHTML = `<strong>Endereço:</strong> ${novoEndereco}`;
+            
+            // Oculta o botão "Salvar Alterações" e exibe o botão "Editar Informações" novamente
+            document.getElementById('salvar-alteracoes').classList.add('d-none');
+            document.getElementById('editar-informacoes').classList.remove('d-none');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Faturas - Plataforma de Compra de Créditos</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="faturas.css"> <!-- Arquivo CSS específico para a tela de Minhas Faturas -->
+    <!-- Biblioteca de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <!-- Ícone de casa para a página inicial -->
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Formas de Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <br/>
+    <main>
+        <section class="container">
+            <h2>Minhas Faturas</h2>
+            <div class="filters">
+                <label for="mes">Filtrar por Mês:</label>
+                <select name="mes" id="mes">
+                    <option value="todos">Todos</option>
+                    <option value="janeiro">Janeiro</option>
+                    <option value="fevereiro">Fevereiro</option>
+                    <option value="marco">Março</option>
+                    <!-- Adicione mais opções de meses conforme necessário -->
+                </select>
+            </div>
+
+            <br>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fatura de Janeiro de 2024</h5>
+                    <p class="card-text">Valor: R$ 500,00</p>
+                    <p class="card-text">Vencimento: 31/01/2024</p>
+                    <button type="button" class="btn btn-primary">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <br>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fatura de Fevereiro de 2024</h5>
+                    <p class="card-text">Valor: R$ 600,00</p>
+                    <p class="card-text">Vencimento: 28/02/2024</p>
+                    <button type="button" class="btn btn-primary">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <br>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Fatura de Março de 2024</h5>
+                    <p class="card-text">Valor: R$ 550,00</p>
+                    <p class="card-text">Vencimento: 31/03/2024</p>
+                    <button type="button" class="btn btn-primary">Ver Detalhes</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="about.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termo.html">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Crédito em Nuvem</p></center>
+    </footer>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+              
+            // Exibe a mensagem de logout
+            alert('Você foi desconectado com sucesso!');
+              
+            // Redireciona para a página de login após 2 segundos
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Principal - Plataforma de Compra de Créditos </title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Biblioteca de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+    body {
+    /* Define a imagem de fundo e faz o ajuste para cobrir toda a tela */
+    background-image: url('06.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Define outras propriedades de estilo, se necessário */
+    color: #000; /* Define a cor do texto, se necessário */
+    /* Adicione outras propriedades de estilo conforme necessário */
+}
+
+.logo1 img {
+    width: 150px; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto; /* Mantém a proporção do logo */
+    margin-right: 10px; /* Adicione margem direita para separação de outros elementos */
+    vertical-align: middle; /* Alinha verticalmente com outros elementos */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Conteúdo da sua página -->
+    <header>
+        <div class="logo1">
+            <img src="cloud_excellence_final (1) edt.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+        <br/>
+    <main>
+        <section class="highlight">
+            <h1>Bem-vindo(a) á Plataforma Créditos de Nuvem!</h1>
+            <br/>
+            <h2>Gerencie seus créditos na nuvem com facilidade!</h2>
+            <p>Está precisando de créditos para pagar sua fatura AWS?</p>
+            <p>Não se preocupe! Com a nossa plataforma, você pode gerenciar seus créditos pré-pagos de forma eficiente e segura. Aproveite nossos recursos exclusivos e simplifique sua gestão financeira na nuvem.</p>
+            <br/>
+            <a href="vantagens.html" class="btn btn-outline-success btn-lg" style="color: #fff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                Descubra as Vantagens
+            </a>
+                    </section>
+
+        <div class="container">
+            <div class="card" id="transaction-card">
+                <h2>Deseja comprar créditos Pré Pagos em nuvem?</h2>
+                <div class="field">
+                    <label for="amount-sent">Quantos Reais você tem para comprar créditos Pré Pagos em nuvem?</label><span id="currency-flag">BRL</span>
+                    <input type="number" id="amount-sent" min="0" step="0.01" placeholder="Insira o valor">
+                </div>
+                <div class="field" id="beneficiary-field" style="display: none;">
+                    <label for="beneficiary-receives">Valor em dólares para pagar sua fatura de nuvem sem impostos</label><span id="currency-flag">USD</span>
+                    <input type="text" id="beneficiary-receives" readonly>
+                    <strong>
+                        <span id="usd-calculation">Cálculo da Taxa</span>
+                    </strong>
+                </div>
+                <div class="field">
+                    <label for="codigo-desconto">Código de Desconto:</label>
+                    <input type="text" id="codigo-desconto" placeholder="Insira o código de desconto">
+                    <br/>
+                    <br/>
+                    <button class="btn btn-outline-success btn-lg" id="desconto-btn">Aplicar Código de Desconto</button>
+                </div>
+                <div class="buttons">
+                    <button id="calculate-button">Calcular</button>
+                    <button id="details-button" style="display: none;">Detalhes</button>
+                    <button id="confirm-button" class="btn btn-primary" style="display: none;">Confirmar Compra</button>
+                </div>
+                <div id="transaction-details" style="display: none;">
+                    <h3>Detalhes da Transação</h3>
+                    <ul>
+                        <li id="initial-amount"></li>
+                        <li id="fee-amount"></li>
+                        <li id="final-amount"></li>
+                        <li id="taxes"></li>
+                        <li id="aws-credits"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" id="saldo-card">
+                <div class="saldo-container">
+                    <h2>Saldo</h2>
+                    <!-- Adicione um link para a página de pagamento com o saldo atualizado como parâmetro na URL -->
+                    <p><a href="pagamento.html?saldo=<%= saldo %>" class="btn btn-outline-success btn-lg">Realizar Pagamento</a></p>
+                </div>
+                
+                <p id="saldo-valor" class="saldo-valor">0.00 BRL</p>
+                <h2>Extrato</h2>
+                <ul id="extrato-list"></ul>
+                <button id="entenda-saldo-btn" class="btn btn-info">Entenda seu Saldo</button>
+                <div id="entenda-saldo-info" style="display: none;">
+                    <p>Aqui estão os detalhes do seu saldo:</p>
+                    <ul>
+                        <li>*Taxa de Conversão (exchangeRate)**:</li>
+                        <li>Impostos: R$ X,XX</li>
+                        <h3>Conversão de Real para Dólar (USD)</h3>
+                            <p>Essa é a taxa aplicada quando se converte um valor em Reais (BRL) para Dólares Americanos (USD). No código, ela é representada pela constante `exchangeRate`, que tem o valor de 5.1303. Essa taxa é fixa e representa a taxa de câmbio atual entre as duas moedas. ( cotação api da Foxbit )</p>
+                            <h3>Taxas de Conversão</h3>
+                            <p>Durante a conversão de BRL para USD, podem ser aplicadas taxas de conversão, que variam de acordo com o método de pagamento escolhido pelo usuário. Essas taxas são geralmente cobradas por instituições financeiras e processadores de pagamento.</p>
+
+                            <h3>Taxas de Serviço</h3>
+                            <p>Além das taxas de conversão, a plataforma pode cobrar uma taxa de serviço sobre o valor da transação. Essa taxa é destinada a cobrir os custos operacionais e de manutenção da plataforma, bem como para gerar receita.</p>
+
+                            <h3>Impostos Brasileiros</h3>
+                            <p>O código menciona a aplicação de impostos brasileiros sobre as transações financeiras. Esses impostos são compostos por PIS (Programa de Integração Social), COFINS (Contribuição para o Financiamento da Seguridade Social), CSLL (Contribuição Social sobre o Lucro Líquido) e IR (Imposto de Renda). A taxa total de impostos é representada pela constante `brazilianTaxesRate`, que tem o valor de 13.8283%. Essa taxa é aplicada sobre o valor convertido em dólares, conforme visto nas funções `calculateUSDConversionWithTaxes(amountSent)` e `calculateTaxes(amountSent)`.</p>
+                            <h3>Descontos e Promoções</h3>
+                            <p>Em algumas ocasiões, a plataforma pode oferecer descontos ou promoções especiais aos usuários. Esses descontos podem ser aplicados ao valor da transação ou à taxa de serviço, proporcionando economias adicionais aos usuários.</p>
+
+                            <h3>Atualização de Saldo</h3>
+                            <p>Após cada transação, o saldo do usuário é atualizado para refletir o valor da transação, levando em consideração as taxas, impostos e descontos aplicáveis. Isso permite que os usuários acompanhem o saldo disponível em sua conta e façam transações futuras com base nesse saldo atualizado.</p>
+
+                            <h3>Extrato de Transações</h3>
+                            <p>Todas as transações realizadas pelos usuários são registradas em um extrato de transações. Este extrato fornece um histórico completo de todas as atividades de transação, incluindo detalhes como o valor da transação, a data e a hora da transação, o tipo de operação (compra, venda, transferência, etc.) e quaisquer taxas ou descontos aplicados.</p>
+
+                    </ul>
+                </div>
+            </div>
+            
+            
+        </div>
+    </main>
+
+    
+    <footer>
+        <ul class="footer-links">
+            <li><a href="about.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termo.html">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Créditos de Nuvem</p></center>
+    </footer>
+
+    <script>
+        // Suponha que você tenha uma função para atualizar o saldo após uma transação
+function atualizarSaldo() {
+    // Lógica para atualizar o saldo após a transação
+    var novoSaldo = calcularNovoSaldo(); // Esta função deve retornar o novo saldo
+    var linkPagamento = document.getElementById('link-pagamento');
+    // Adicione o saldo atualizado como parâmetro na URL para a página de pagamento
+    linkPagamento.href = 'pagamento.html?saldo_atual=' + novoSaldo;
+}
+
+// Chamada da função atualizarSaldo() após uma transação bem-sucedida
+
+    </script>
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+              
+            // Exibe a mensagem de logout
+            alert('Você foi desconectado com sucesso!');
+              
+            // Redireciona para a página de login após 2 segundos
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('entenda-saldo-btn').addEventListener('click', function() {
+        var entendaSaldoInfo = document.getElementById('entenda-saldo-info');
+        if (entendaSaldoInfo.style.display === 'block') {
+            entendaSaldoInfo.style.display = 'none';
+        } else {
+            entendaSaldoInfo.style.display = 'block';
+        }
+    });
+});
+
+    </script>
+
+    <script src="script.js"></script>
+    <script src="desconto.js"></script>
+
+</body>
+</html>

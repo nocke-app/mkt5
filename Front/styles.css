@@ -1,0 +1,178 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="number"],
+input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #007bff;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#transaction-details {
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Estilo para a lista de links no footer */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Exibir os itens horizontalmente */
+  justify-content: center; /* Centralizar os itens horizontalmente */
+}
+
+.footer-links li {
+  margin: 0 10px; /* Adicionar margem entre os itens */
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links li a:hover {
+  color: #007bff; /* Mudar a cor ao passar o mouse */
+}
+
+
+.highlight {
+  color: #fff; /* Define a cor do texto como branco */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto para melhorar a legibilidade */
+  /* Ou, se preferir um gradiente de fundo: */
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); */
+}
+
+
+
+.saldo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.saldo-valor {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+
+
+.qr-code-window {
+  position: absolute;
+  top: 100%; /* Posiciona a janela um pouco mais abaixo */
+  left: 50%; /* Posiciona a janela horizontalmente no meio da tela */
+  transform: translate(-50%, -50%); /* Centraliza a janela */
+  background-color: #ffffff; /* Cor de fundo da janela */
+  padding: 20px; /* Espaçamento interno da janela */
+  border: 1px solid #000000; /* Borda da janela */
+  text-align: center; /* Centraliza conteúdo horizontalmente */
+}
+
+.qr-code-image {
+  width: 100px; /* Define a largura da imagem do QR code */
+  margin-bottom: 20px; /* Adiciona um espaçamento entre a imagem e o botão */
+}

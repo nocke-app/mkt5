@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte - Plataforma de Compra de Créditos</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="suporte.css"> <!-- Arquivo CSS específico para a tela de Suporte -->
+    <!-- Biblioteca de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <!-- Ícone de casa para a página inicial -->
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Formas de Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <br/>
+    <main>
+        <section class="container">
+            <h2>Suporte</h2>
+            <p>Se você tiver alguma dúvida, problema técnico ou precisar de ajuda, entre em contato conosco através dos seguintes métodos:</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Central de Atendimento</h5>
+                    <p class="card-text">Entre em contato com a nossa central de atendimento através do telefone (11) 1234-5678.</p>
+                    <button type="button" class="btn btn-primary">Ligar Agora</button>
+                </div>
+            </div>
+
+            <br>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chat Online</h5>
+                    <p class="card-text">Converse com um de nossos agentes de suporte em tempo real através do chat online.</p>
+                    <button type="button" class="btn btn-success">Iniciar Chat</button>
+                </div>
+            </div>
+
+            <br>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Email</h5>
+                    <p class="card-text">Envie-nos um email com sua pergunta ou problema e responderemos o mais breve possível.</p>
+                    <button type="button" class="btn btn-info">Enviar Email</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Crédito em Nuvem</p></center>
+    </footer>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+              
+            // Exibe a mensagem de logout
+            alert('Você foi desconectado com sucesso!');
+              
+            // Redireciona para a página de login após 2 segundos
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formas de Pagamento - Plataforma de Compra de Créditos</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Seu arquivo CSS personalizado -->
+    <link rel="stylesheet" href="pagamento.css"> <!-- Arquivo CSS específico para a tela de Formas de Pagamento -->
+    <!-- Biblioteca de ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <!-- Ícone de casa para a página inicial -->
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br/>
+    <main>
+        <section class="container">
+            <h2>Realize seu Pagamento</h2>
+            <p>Escolha a forma de pagamento que melhor atenda às suas necessidades:</p>
+        
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Pagar via PIX</h5>
+                    <p class="card-text">Pague agora via PIX! Insira o valor e clique em "Gerar QR Code" para realizar o pagamento.</p>
+                    <div id="pix-qrcode" style="display: none;">
+                        <!-- Aqui vai o QR Code para pagamento via PIX -->
+                        <img id="qrcode-img" src="" alt="QR Code PIX" style="width: 200px;">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label for="valor-input">Saldo Atual:</label>
+                        <input type="text" class="form-control" id="valor-input" readonly>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="gerar-qrcode-btn">Gerar QR Code</button>
+                    <button type="button" class="btn btn-success" id="pagar-btn" style="display: none;">Pagar</button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="about.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="termo.html">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Créditos em Nuvem</p></center>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+              
+            // Exibe a mensagem de logout
+            alert('Você foi desconectado com sucesso!');
+              
+            // Redireciona para a página de login após 2 segundos
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+        });
+
+        // Recuperar o saldo armazenado em localStorage
+        // Função para recuperar parâmetros da URL
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Recuperar o saldo da URL
+    var saldo = getParameterByName('saldo');
+    document.getElementById('valor-input').value = saldo ? 'R$ ' + saldo : 'R$ 0.00';
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Nova Conta - Créditos em Nuvem</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="register_styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="banner"></div>
+        <div class="login-content">
+            <h2 class="login-heading">Criar Nova Conta</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="nome">Nome da Empresa:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone">
+                </div>
+                <div class="form-group">
+                    <label for="aws">Possui conta na AWS?</label>
+                    <select id="aws" name="aws">
+                        <option value="sim">Sim</option>
+                        <option value="nao" selected>Não</option>
+                    </select>
+                </div>
+                <div class="form-group" id="aws-id-group" style="display: none;">
+                    <label for="aws-id">ID da conta AWS:</label>
+                    <input type="text" id="aws-id" name="aws-id">
+                </div>
+                <div class="form-group" id="aws-credito-group" style="display: none;">
+                    <label for="aws-credito">Créditos na AWS (R$):</label>
+                    <input type="number" id="aws-credito" name="aws-credito">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmar-senha">Confirmar Senha:</label>
+                    <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+                </div>
+                <button type="submit">Criar Conta</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("aws").addEventListener("change", function() {
+            var awsIdGroup = document.getElementById("aws-id-group");
+            var awsCreditoGroup = document.getElementById("aws-credito-group");
+            if (this.value === "sim") {
+                awsIdGroup.style.display = "block";
+                awsCreditoGroup.style.display = "block";
+            } else {
+                awsIdGroup.style.display = "none";
+                awsCreditoGroup.style.display = "none";
+            }
+        });
+
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var formObject = {};
+            formData.forEach(function(value, key){
+                formObject[key] = value;
+            });
+            localStorage.setItem("novaConta", JSON.stringify(formObject));
+            alert("Conta criada com sucesso! Você será redirecionado para a página de login.");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

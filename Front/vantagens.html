@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantagens - Plataforma de Compra de Créditos</title>
+    <link rel="stylesheet" href="vantagens.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="meus_dados.html"><i class="fas fa-user"></i> Meus Dados</a></li>
+                <li><a href="suporte.html"><i class="fas fa-question-circle"></i> Suporte</a></li>
+                <li><a href="pagamento.html"><i class="fas fa-credit-card"></i> Formas de Pagamento</a></li>
+                <li><a href="faturas.html"><i class="fas fa-file-invoice-dollar"></i> Minhas Faturas</a></li>
+                <li><a href="historico_financeiro.html"><i class="fas fa-history"></i> Histórico Financeiro</a></li>
+                <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="vantagens-section">
+            <h2>Descubra as Vantagens</h2>
+            <div class="vantagem-card">
+                <img src="vantagem1.jpg" alt="Vantagem 1">
+                <h3>Vantagem 1: Facilidade de Gestão</h3>
+                <p>Gerencie seus créditos na nuvem de forma simples e eficiente.</p>
+            </div>
+            <div class="vantagem-card">
+                <img src="vantagem2.jpg" alt="Vantagem 2">
+                <h3>Vantagem 2: Segurança</h3>
+                <p>Transações seguras e proteção dos seus dados financeiros.</p>
+            </div>
+            <div class="vantagem-card">
+                <img src="vantagem3.jpg" alt="Vantagem 3">
+                <h3>Vantagem 3: Flexibilidade de Pagamento</h3>
+                <p>Diversas formas de pagamento disponíveis para sua conveniência.</p>
+            </div>
+            <div class="vantagem-card">
+                <img src="vantagem4.jpg" alt="Vantagem 4">
+                <h3>Vantagem 4: Suporte Personalizado</h3>
+                <p>Nossa equipe está pronta para ajudar você em qualquer momento.</p>
+            </div>
+            <a href="dashboard.html" class="btn btn-primary">Quero comprar créditos</a>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+        </ul>
+        
+        <p><center>&copy; 2024 Crédito em Nuvem</p></center>
+    </footer>
+
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+              
+            // Exibe a mensagem de logout
+            alert('Você foi desconectado com sucesso!');
+              
+            // Redireciona para a página de login após 2 segundos
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 2000); // Redireciona após 2 segundos (2000 milissegundos)
+        });
+    </script>
+
+
+</body>
+</html>
