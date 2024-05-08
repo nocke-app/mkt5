@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Excellente Cloud </title>
+    <link rel="stylesheet" href="styles.css"> <!-- Adicionando o arquivo CSS -->
+</head>
+<body>
+    <header>
+        <h1>Painel Administrativo</h1>
+        <!-- Adicione elementos de navegação ou informações do usuário logado aqui -->
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#usuarios">Gerenciamento de Usuários</a></li>
+            <li><a href="#taxas">Gerenciamento de Taxas</a></li>
+            <li><a href="#transacoes">Transações em Dólares</a></li>
+            <li><a href="#faturas">Faturas</a></li>
+            <li><a href="#relatorios">Relatórios</a></li>
+            <li><a href="#acessos">Usuários de Acessos</a></li>
+            <li><a href="#clientes">Clientes Cadastrados</a></li>
+            <li><a href="login.html">Sair</a></li>
+        </ul>
+    </nav>
+    <main>
+<!-- Adicione isso dentro de cada seção onde você deseja ter campos editáveis -->
+<section id="usuarios">
+    <h2>Gerenciamento de Usuários</h2>
+    <div id="usuarios-container">
+        <div class="usuario">
+            <div class="info">
+                <span>Nome: </span><span class="nome">Nome do Usuário</span><br>
+                <span>Email: </span><span class="email">email@example.com</span><br>
+            </div>
+            <div class="botoes">
+                <button class="editar">Editar</button>
+                <button class="salvar">Salvar</button>
+                <button class="excluir">Excluir</button>
+            </div>
+        </div>
+        <!-- Adicione mais usuários aqui se necessário -->
+    </div>
+</section>
+
+<section id="taxas">
+    <h2>Gerenciamento de Taxas</h2>
+    <div id="taxas-container">
+        <div class="taxa">
+            <div class="info">
+                <label for="nome-taxa">Nome da Taxa:</label>
+                <input type="text" id="nome-taxa" class="nome" value="Taxa Padrão" readonly>
+                <label for="valor-taxa">Valor:</label>
+                <input type="number" id="valor-taxa" class="valor" value="10.00" readonly>
+            </div>
+            <div class="botoes">
+                <button class="editar">Editar</button>
+                <button class="salvar">Salvar</button>
+                <button class="excluir">Excluir</button>
+            </div>
+        </div>
+        <!-- Adicione mais taxas aqui se necessário -->
+    </div>
+</section>
+
+<section id="transacoes">
+    <h2>Transações em Dólares</h2>
+    <div id="transacoes-container">
+        <div class="transacao">
+            <div class="info">
+                <label for="descricao-transacao">Descrição:</label>
+                <input type="text" id="descricao-transacao" class="descricao" value="Compra de Produto">
+                <label for="valor-transacao">Valor:</label>
+                <input type="number" id="valor-transacao" class="valor" value="50.00">
+            </div>
+            <div class="botoes">
+                <button class="editar">Editar</button>
+                <button class="salvar">Salvar</button>
+                <button class="excluir">Excluir</button>
+            </div>
+        </div>
+        <!-- Adicione mais transações aqui se necessário -->
+    </div>
+</section>
+
+<section id="faturas">
+    <h2>Faturas</h2>
+    <div id="faturas-container">
+        <div class="fatura">
+            <div class="info">
+                <label for="numero-fatura">Número da Fatura:</label>
+                <input type="text" id="numero-fatura" class="numero" value="001" readonly>
+                <label for="valor-fatura">Valor:</label>
+                <input type="number" id="valor-fatura" class="valor" value="100.00" readonly>
+            </div>
+            <div class="botoes">
+                <button class="editar">Editar</button>
+                <button class="salvar">Salvar</button>
+                <button class="excluir">Excluir</button>
+            </div>
+        </div>
+        <!-- Adicione mais faturas aqui se necessário -->
+    </div>
+</section>
+
+<section id="relatorios">
+    <h2>Relatórios</h2>
+    <p>Adicione visualizações de relatórios ou gráficos aqui.</p>
+</section>
+
+<section id="acessos">
+    <h2>Usuários de Acessos</h2>
+    <p>Adicione formulários ou tabelas para gerenciar usuários de acesso aqui.</p>
+</section>
+
+<section id="clientes">
+    <h2>Clientes Cadastrados</h2>
+    <p>Adicione formulários ou tabelas para gerenciar clientes cadastrados aqui.</p>
+</section>
+
+    </main>
+    <footer>
+        <!-- Adicione informações de rodapé, como copyright ou links adicionais -->
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const usuariosContainer = document.getElementById("usuarios-container");
+            const usuarios = usuariosContainer.getElementsByClassName("usuario");
+    
+            // Adiciona eventos de clique para cada botão de editar, salvar e excluir
+            for (let i = 0; i < usuarios.length; i++) {
+                const editarBtn = usuarios[i].getElementsByClassName("editar")[0];
+                const salvarBtn = usuarios[i].getElementsByClassName("salvar")[0];
+                const excluirBtn = usuarios[i].getElementsByClassName("excluir")[0];
+    
+                // Botão Editar
+                editarBtn.addEventListener("click", function() {
+                    const nomeCampo = usuarios[i].getElementsByClassName("nome")[0];
+                    const emailCampo = usuarios[i].getElementsByClassName("email")[0];
+    
+                    nomeCampo.contentEditable = true;
+                    emailCampo.contentEditable = true;
+                });
+    
+                // Botão Salvar
+                salvarBtn.addEventListener("click", function() {
+                    const nomeCampo = usuarios[i].getElementsByClassName("nome")[0];
+                    const emailCampo = usuarios[i].getElementsByClassName("email")[0];
+    
+                    nomeCampo.contentEditable = false;
+                    emailCampo.contentEditable = false;
+                });
+    
+                // Botão Excluir
+                excluirBtn.addEventListener("click", function() {
+                    usuariosContainer.removeChild(usuarios[i]);
+                });
+            }
+        });
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Gerenciamento de Taxas
+        const taxasContainer = document.getElementById("taxas-container");
+        const taxas = taxasContainer.getElementsByClassName("taxa");
+
+        for (let i = 0; i < taxas.length; i++) {
+            const editarBtn = taxas[i].getElementsByClassName("editar")[0];
+            const salvarBtn = taxas[i].getElementsByClassName("salvar")[0];
+            const excluirBtn = taxas[i].getElementsByClassName("excluir")[0];
+
+            // Botão Editar
+            editarBtn.addEventListener("click", function() {
+                const nomeCampo = taxas[i].getElementsByClassName("nome")[0];
+                const valorCampo = taxas[i].getElementsByClassName("valor")[0];
+
+                nomeCampo.readOnly = false;
+                valorCampo.readOnly = false;
+            });
+
+            // Botão Salvar
+            salvarBtn.addEventListener("click", function() {
+                const nomeCampo = taxas[i].getElementsByClassName("nome")[0];
+                const valorCampo = taxas[i].getElementsByClassName("valor")[0];
+
+                nomeCampo.readOnly = true;
+                valorCampo.readOnly = true;
+            });
+
+            // Botão Excluir
+            excluirBtn.addEventListener("click", function() {
+                taxasContainer.removeChild(taxas[i]);
+            });
+        }
+
+        // Transações em Dólares
+        const transacoesContainer = document.getElementById("transacoes-container");
+        const transacoes = transacoesContainer.getElementsByClassName("transacao");
+
+        for (let i = 0; i < transacoes.length; i++) {
+            const editarBtn = transacoes[i].getElementsByClassName("editar")[0];
+            const salvarBtn = transacoes[i].getElementsByClassName("salvar")[0];
+            const excluirBtn = transacoes[i].getElementsByClassName("excluir")[0];
+
+            // Botão Editar
+            editarBtn.addEventListener("click", function() {
+                const descricaoCampo = transacoes[i].getElementsByClassName("descricao")[0];
+                const valorCampo = transacoes[i].getElementsByClassName("valor")[0];
+
+                descricaoCampo.readOnly = false;
+                valorCampo.readOnly = false;
+            });
+
+            // Botão Salvar
+            salvarBtn.addEventListener("click", function() {
+                const descricaoCampo = transacoes[i].getElementsByClassName("descricao")[0];
+                const valorCampo = transacoes[i].getElementsByClassName("valor")[0];
+
+                descricaoCampo.readOnly = true;
+                valorCampo.readOnly = true;
+            });
+
+            // Botão Excluir
+            excluirBtn.addEventListener("click", function() {
+                transacoesContainer.removeChild(transacoes[i]);
+            });
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Faturas
+        const faturasContainer = document.getElementById("faturas-container");
+        const faturas = faturasContainer.getElementsByClassName("fatura");
+
+        for (let i = 0; i < faturas.length; i++) {
+            const editarBtn = faturas[i].getElementsByClassName("editar")[0];
+            const salvarBtn = faturas[i].getElementsByClassName("salvar")[0];
+            const excluirBtn = faturas[i].getElementsByClassName("excluir")[0];
+
+            // Botão Editar
+            editarBtn.addEventListener("click", function() {
+                const numeroCampo = faturas[i].getElementsByClassName("numero")[0];
+                const valorCampo = faturas[i].getElementsByClassName("valor")[0];
+
+                numeroCampo.readOnly = false;
+                valorCampo.readOnly = false;
+            });
+
+            // Botão Salvar
+            salvarBtn.addEventListener("click", function() {
+                const numeroCampo = faturas[i].getElementsByClassName("numero")[0];
+                const valorCampo = faturas[i].getElementsByClassName("valor")[0];
+
+                numeroCampo.readOnly = true;
+                valorCampo.readOnly = true;
+            });
+
+            // Botão Excluir
+            excluirBtn.addEventListener("click", function() {
+                faturasContainer.removeChild(faturas[i]);
+            });
+        }
+    });
+</script>
+
+    
+</body>
+</html>
