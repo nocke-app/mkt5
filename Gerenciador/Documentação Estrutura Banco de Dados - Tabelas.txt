@@ -1,0 +1,82 @@
+#### 1. Estrutura do Banco de Dados:
+   O sistema utiliza um banco de dados relacional para armazenar informações importantes sobre taxas, clientes, transações financeiras, relatórios, acessos de usuários e solicitações de suporte. Abaixo está a estrutura das tabelas utilizadas:
+
+##### Tabela de Taxas:
+   - **`taxas`**
+     - `id INT`: Identificador único da taxa (chave primária).
+     - `tipo VARCHAR(100)`: Tipo da taxa.
+     - `valor DECIMAL(10, 2)`: Valor da taxa.
+     - `descricao TEXT`: Descrição detalhada da taxa.
+
+##### Tabela de Clientes:
+   - **`clientes`**
+     - `id INT`: Identificador único do cliente (chave primária).
+     - `nome VARCHAR(100)`: Nome do cliente.
+     - `email VARCHAR(100)`: Endereço de e-mail do cliente.
+     - `telefone VARCHAR(20)`: Número de telefone do cliente.
+     - `endereco TEXT`: Endereço do cliente.
+
+##### Tabela de Transações Financeiras:
+   - **`transacoes_financeiras`**
+     - `id INT`: Identificador único da transação (chave primária).
+     - `cliente_id INT`: Identificador do cliente relacionado (chave estrangeira).
+     - `valor DECIMAL(10, 2)`: Valor da transação.
+     - `tipo ENUM('entrada', 'saída')`: Tipo da transação (entrada ou saída).
+     - `descricao TEXT`: Descrição da transação.
+     - `data TIMESTAMP`: Data e hora da transação (preenchida automaticamente).
+
+##### Tabela de Relatórios:
+   - **`relatorios`**
+     - `id INT`: Identificador único do relatório (chave primária).
+     - `titulo VARCHAR(255)`: Título do relatório.
+     - `descricao TEXT`: Descrição do relatório.
+     - `data DATE`: Data do relatório.
+
+##### Tabela de Acessos:
+   - **`acessos`**
+     - `id INT`: Identificador único do acesso (chave primária).
+     - `usuario_id INT`: Identificador do usuário que acessou (chave estrangeira).
+     - `data_hora TIMESTAMP`: Data e hora do acesso (preenchida automaticamente).
+
+##### Tabela de Usuários:
+   - **`usuarios`**
+     - `id INT`: Identificador único do usuário (chave primária).
+     - `nome VARCHAR(100)`: Nome do usuário.
+     - `email VARCHAR(100)`: Endereço de e-mail do usuário.
+     - `senha VARCHAR(255)`: Senha do usuário (criptografada).
+     - `papel ENUM('admin', 'usuario')`: Papel do usuário (administrador ou usuário comum).
+
+##### Tabela de Suporte:
+   - **`suporte`**
+     - `id INT`: Identificador único da solicitação de suporte (chave primária).
+     - `assunto VARCHAR(255)`: Assunto da solicitação de suporte.
+     - `descricao TEXT`: Descrição detalhada da solicitação de suporte.
+     - `status ENUM('Não Resolvido', 'Resolvido')`: Status da solicitação de suporte.
+     - `data_solicitacao TIMESTAMP`: Data e hora da solicitação de suporte (preenchida automaticamente).
+
+#### 2. Funcionalidades do JavaScript:
+   O código JavaScript do sistema oferece funcionalidades interativas para melhorar a experiência do usuário e controlar o comportamento dinâmico das páginas. Abaixo estão as principais funcionalidades implementadas:
+
+##### - Navegação entre Seções:
+   - Os links de navegação são associados às seções correspondentes no documento HTML.
+   - Quando um link é clicado, a seção correspondente é exibida e as outras são ocultadas.
+   - Isso é feito adicionando e removendo classes CSS para controlar a visibilidade das seções.
+
+##### - Edição de Taxas:
+   - Dentro da seção de taxas, botões de edição são adicionados dinamicamente.
+   - Quando um botão é clicado, os campos de taxa podem ser editados.
+   - Ao clicar novamente no botão, as alterações são salvas e um alerta é exibido.
+
+##### - Gerenciamento de Integrações:
+   - O sistema oferece uma tela para adicionar e configurar integrações.
+   - Um formulário é fornecido para inserir informações relevantes sobre a integração.
+   - Quando o formulário é enviado, os dados são processados e um alerta confirma o sucesso da operação.
+
+##### - Visualização de Ajuda e FAQ:
+   - Links de ajuda e FAQ permitem aos usuários acessar informações adicionais.
+   - Quando clicados, eles exibem as seções correspondentes enquanto ocultam outras informações.
+
+#### 3. Considerações Finais:
+   - O sistema oferece uma interface abrangente para gerenciar informações financeiras e solicitações de suporte.
+   - As funcionalidades JavaScript garantem uma interação suave e eficiente do usuário com o sistema.
+   - A estrutura do banco de dados é projetada para armazenar e recuperar informações de forma organizada e eficiente.

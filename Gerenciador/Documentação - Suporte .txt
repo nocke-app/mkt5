@@ -1,0 +1,33 @@
+# Documentação Técnica: Sistema de Suporte
+
+## Introdução
+
+Este documento técnico descreve o código JavaScript responsável por implementar a funcionalidade de um sistema de suporte básico em uma aplicação web. O sistema permite criar, exibir e filtrar solicitações de suporte.
+
+## Estrutura do Código
+
+O código está organizado em uma série de funções que desempenham papéis específicos no sistema. Aqui estão os principais trechos do código:
+
+### Função `criarCardSolicitacao(solicitacao)`
+
+Esta função é responsável por criar e exibir um card contendo os detalhes de uma solicitação de suporte. Ela recebe um objeto `solicitacao` como parâmetro, contendo informações como assunto e descrição da solicitação. A função cria um novo elemento HTML `<div>` para representar o card, adiciona classes CSS apropriadas para estilização e preenche o conteúdo do card com os detalhes da solicitação. Além disso, ela adiciona um ouvinte de eventos para abrir um modal com detalhes adicionais quando o card é clicado.
+
+### Função `exibirDetalhesSolicitacao(solicitacao)`
+
+Esta função é chamada quando um card de solicitação de suporte é clicado. Ela exibe os detalhes da solicitação em um modal ou pop-up. Os detalhes exibidos incluem o assunto e a descrição da solicitação.
+
+### Função `simularRecebimentoDeSolicitacoes()`
+
+Esta função simula o recebimento de solicitações de suporte de um serviço externo. Ela cria um array de objetos representando as solicitações recebidas e chama a função `criarCardSolicitacao()` para exibir cada uma delas na página.
+
+### Função `filtrarSolicitacoes(status)`
+
+Esta função é responsável por filtrar as solicitações de suporte com base em seu status. Ela recebe como parâmetro uma string representando o status desejado ("Todos", "Resolvido" ou "Não Resolvido") e exibe apenas as solicitações que correspondem a esse status. Ela limpa o conteúdo atual do contêiner de solicitações e, em seguida, utiliza a função `criarCardSolicitacao()` para exibir as solicitações filtradas.
+
+### Adicionando Ouvintes de Eventos
+
+O código também adiciona ouvintes de eventos aos botões de filtro ("Todos", "Resolvido" e "Não Resolvido"), de modo que, quando um desses botões é clicado, a função `filtrarSolicitacoes()` é chamada com o status apropriado.
+
+### Carregamento Inicial
+
+Finalmente, a função `window.onload` é utilizada para chamar a função `simularRecebimentoDeSolicitacoes()` quando a página é carregada inicialmente. Isso garante que as solicitações de suporte sejam exibidas assim que a página for carregada.
