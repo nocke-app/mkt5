@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Administração</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Administração</h2>
+        <ul>
+            <li><a href="#" id="taxas-link">Gerenciar Taxas</a></li>
+            <li><a href="#" id="clientes-link">Clientes</a></li>
+            <li><a href="#" id="financeiro-link">Financeiro</a></li>
+            <li><a href="#" id="relatorios-link">Relatórios</a></li>
+            <li><a href="#" id="acessos-link">Acessos Administrativos</a></li>
+            <li><a href="#" id="integracoes-link">Configurações de Integrações</a></li>
+            <li><a href="suporte.html" id="">Suporte</a></li>
+            <li><a href="index.html" id="logout">Sair</a></li>
+            <li><a href="#" id="ajuda-link"></a></li>
+                     
+            <!-- Novo menu -->
+            <li><a href="#" id="novo-menu-link"></a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div id="dashboard">
+            <h2>Bem-vindo ao Painel de Administração da Excellent Cloud</h2>
+            <p>Selecione uma opção no menu ao lado.</p>
+            <p>Este sistema web foi desenvolvido como um gerenciador administrativo para a plataforma Excellent Cloud, que oferece serviços de compra de créditos para nuvens.</p>
+            <p>O painel de administração foi projetado para fornecer uma interface intuitiva e eficiente para gerenciar todas as operações relacionadas à gestão de créditos, usuários e integrações com outras plataformas.</p>
+            <p>Com diversas funcionalidades e uma interface amigável, este painel visa facilitar o processo de administração e garantir uma experiência de usuário agradável para os administradores da Excellent Cloud.</p>
+            <a href="faq.html" class="btn btn-primary">Acesso à Documentação Completa do Sistema Administrativo</a>
+        </div>
+        
+        
+        <div id="taxas" class="hidden">
+            <h2>Gerenciar Taxas</h2>
+            <form id="taxForm">
+                <div class="tax-field">
+                    <label for="tax1">Taxa de Conversão Real para Dólar:</label>
+                    <input type="text" id="tax1" name="tax1" value="5.0887" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Esta taxa representa o valor de conversão do Real para o Dólar, utilizado para calcular transações internacionais.</p>
+                </div>
+                <div class="tax-field">
+                    <label for="tax2">Impostos Brasileiros para Conversão em Dólar:</label>
+                    <input type="text" id="tax2" name="tax2" value="0.138283" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Esses impostos referem-se à taxa total de impostos brasileiros aplicados sobre a conversão de Reais para Dólares, incluindo PIS, COFINS, CSLL e IR.</p>
+                </div>
+                <div class="tax-field">
+                    <label for="tax3">Taxa de 0.2% da Foxbit:</label>
+                    <input type="text" id="tax3" name="tax3" value="0.2" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Esta taxa é cobrada pela plataforma Foxbit e representa uma taxa fixa de 0.2% sobre o valor total da transação.</p>
+                </div>
+                <div class="tax-field">
+                    <label for="tax4">Impostos sobre Créditos AWS:</label>
+                    <input type="text" id="tax4" name="tax4" value="13.8283" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Esses impostos referem-se aos tributos aplicados sobre a compra de créditos AWS, incluindo PIS, COFINS, CSLL e IR.</p>
+                </div>
+                <div class="tax-field">
+                    <label for="tax5">Taxa de 5%:</label>
+                    <input type="text" id="tax5" name="tax5" value="0.05" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Esta taxa é uma porcentagem fixa de 5% aplicada sobre o valor total da transação.</p>
+                </div>
+                <div class="tax-field">
+                    <label for="tax6">Impostos Brasileiros + 5%:</label>
+                    <input type="text" id="tax6" name="tax6" value="0.188283" disabled>
+                    <button type="button" class="edit-button">Editar</button>
+                    <!-- Explicação -->
+                    <p class="tax-explanation">Essa taxa representa a soma dos impostos brasileiros e da taxa de serviço de 5% sobre o valor total da transação.</p>
+                </div>
+            </form>
+        </div>
+        
+        <div id="clientes" class="hidden">
+            <h2>Clientes</h2>
+            <form id="clientsForm">
+                <!-- Campos de clientes aqui -->
+                <div class="client-field">
+                    <label for="searchClients">Buscar Clientes:</label>
+                    <input type="text" id="searchClients" name="searchClients">
+                    <button type="button" class="search-button">Buscar</button>
+                </div>
+            </form>
+        </div>
+        <div id="financeiro" class="hidden">
+            <h2>Financeiro</h2>
+            <form id="financialForm">
+                <div class="form-field">
+                    <label for="buscarPagamentos">Buscar Pagamentos:</label>
+                    <input type="text" id="buscarPagamentos" name="buscarPagamentos" placeholder="Digite para buscar pagamentos">
+                </div>
+        
+                <div class="form-field">
+                    <label for="clientesAtrasados">Clientes Atrasados:</label>
+                    <input type="text" id="clientesAtrasados" name="clientesAtrasados" placeholder="Digite para buscar clientes atrasados">
+                </div>
+        
+                <!-- Outros campos financeiros aqui -->
+        
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+        
+        <div id="relatorios" class="hidden">
+            <h2>Relatórios</h2>
+            <form id="reportsForm">
+                <div class="form-field">
+                    <label for="relatorioClientes">Relatório de Clientes:</label>
+                    <select id="relatorioClientes" name="relatorioClientes">
+                        <option value="todos">Todos os clientes</option>
+                        <option value="ativos">Clientes ativos</option>
+                        <option value="inativos">Clientes inativos</option>
+                    </select>
+                </div>
+                
+                <div class="form-field">
+                    <label for="relatorioPagamentos">Relatório de Pagamentos:</label>
+                    <select id="relatorioPagamentos" name="relatorioPagamentos">
+                        <option value="todos">Todos os pagamentos</option>
+                        <option value="pendentes">Pagamentos pendentes</option>
+                        <option value="completos">Pagamentos completos</option>
+                    </select>
+                </div>
+        
+                <div class="form-field">
+                    <label for="periodoRelatorio">Período do Relatório:</label>
+                    <input type="date" id="periodoRelatorioInicio" name="periodoRelatorioInicio">
+                    <span>até</span>
+                    <input type="date" id="periodoRelatorioFim" name="periodoRelatorioFim">
+                </div>
+
+    
+                <!-- Outros campos de relatórios aqui -->
+        
+                <button type="submit">Gerar Relatório</button>
+            </form>
+        </div>
+        
+        <div id="acessos" class="hidden">
+            <h2>Acessos Administrativos</h2>
+            <h5>Aqui você crie acessos para usuários que irão ter acesso Administrativo desde gerenciador.</h5>
+            <br/>
+            <form id="accessesForm">
+                <!-- Campos de acessos administrativos aqui -->
+                <div class="access-field">
+                    <label>Gerenciar Usuários:</label>
+                    <div>
+                        <button type="button" id="createNewUserButton" class="btn btn-primary">Criar Novo Usuário</button>
+                        <button type="button" id="editExistingUserButton" class="btn btn-primary">Editar Usuário Existente</button>
+                        <button type="button" id="deleteExistingUserButton" class="btn btn-primary">Excluir Usuário Existente</button>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Formulário para criar novo usuário -->
+            <form id="createUserForm" class="user-form hidden">
+                <div class="form-field">
+                    <label for="newUserName">Nome:</label>
+                    <input type="text" id="newUserName" name="newUserName" required>
+                </div>
+                <div class="form-field">
+                    <label for="newUserPassword">Senha:</label>
+                    <input type="password" id="newUserPassword" name="newUserPassword" required>
+                </div>
+                <div class="form-field">
+                    <label for="newUserEmail">Email:</label>
+                    <input type="email" id="newUserEmail" name="newUserEmail" required>
+                </div>
+                <div class="form-field">
+                    <label for="newUserDepartment">Departamento:</label>
+                    <input type="text" id="newUserDepartment" name="newUserDepartment">
+                </div>
+                <div class="form-field">
+                    <label for="newUserAccess">Tipo de Acesso:</label>
+                    <select id="newUserAccess" name="newUserAccess">
+                        <option value="admin">Administrador</option>
+                        <option value="manager">Gerente</option>
+                        <option value="user">Usuário</option>
+                    </select>
+                </div>
+                <button type="submit">Salvar</button>
+            </form>
+
+            <!-- Formulário para editar usuário existente -->
+            <form id="editUserForm" class="user-form hidden">
+                <div class="form-field">
+                    <label for="existingUserToEdit">Usuário a Editar:</label>
+                    <select id="existingUserToEdit" name="existingUserToEdit">
+                        <!-- Aqui será preenchido com a lista de usuários existentes -->
+                        <!-- Cada opção terá o ID do usuário como valor -->
+                        <!-- Por enquanto, vamos deixar vazio -->
+                    </select>
+                </div>
+                <!-- Campos para editar usuário existente -->
+                <div class="form-field">
+                    <label for="editedUserName">Nome:</label>
+                    <input type="text" id="editedUserName" name="editedUserName" required>
+                </div>
+                <div class="form-field">
+                    <label for="editedUserPassword">Nova Senha:</label>
+                    <input type="password" id="editedUserPassword" name="editedUserPassword">
+                </div>
+                <div class="form-field">
+                    <label for="editedUserEmail">Email:</label>
+                    <input type="email" id="editedUserEmail" name="editedUserEmail" required>
+                </div>
+                <div class="form-field">
+                    <label for="editedUserDepartment">Departamento:</label>
+                    <input type="text" id="editedUserDepartment" name="editedUserDepartment">
+                </div>
+                <div class="form-field">
+                    <label for="editedUserAccess">Tipo de Acesso:</label>
+                    <select id="editedUserAccess" name="editedUserAccess">
+                        <option value="admin">Administrador</option>
+                        <option value="manager">Gerente</option>
+                        <option value="user">Usuário</option>
+                    </select>
+                </div>
+                <button type="button" id="editUserButton">Editar</button>
+                <button type="button" id="saveEditedUserButton" class="hidden">Salvar</button>
+            </form>
+
+            <!-- Formulário para excluir usuário existente -->
+            <form id="deleteUserForm" class="user-form hidden">
+                <div class="form-field">
+                    <label for="existingUserToDelete">Usuário a Excluir:</label>
+                    <!-- Aqui terá um campo para selecionar o usuário a ser excluído -->
+                    <!-- Este campo pode ser preenchido com uma lista de usuários existentes -->
+                </div>
+                <button type="button" id="confirmDeleteUserButton">Confirmar Exclusão</button>
+            </form>
+        </div>
+
+        <div id="integracoes" class="hidden">
+            <h2>Configurações de Integrações</h2>
+            <form id="integracoesForm">
+                <div class="integracao-field">
+                    <label for="integracaoTipo">Tipo de Integração:</label>
+                    <select id="integracaoTipo" name="integracaoTipo" required>
+                        <option value="">Selecione o Tipo</option>
+                        <option value="api">API</option>
+                        <option value="webhook">Webhook</option>
+                        <option value="oauth">OAuth</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoNome">Nome da Integração:</label>
+                    <input type="text" id="integracaoNome" name="integracaoNome" required>
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoURL">URL da Integração:</label>
+                    <input type="url" id="integracaoURL" name="integracaoURL" required>
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoDescricao">Descrição da Integração:</label>
+                    <textarea id="integracaoDescricao" name="integracaoDescricao" rows="4"></textarea>
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoToken">Token de Autenticação:</label>
+                    <input type="text" id="integracaoToken" name="integracaoToken">
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoParametros">Parâmetros:</label>
+                    <textarea id="integracaoParametros" name="integracaoParametros" rows="4"></textarea>
+                </div>
+                <div class="integracao-field">
+                    <label for="integracaoAtiva">Ativar Integração:</label>
+                    <input type="checkbox" id="integracaoAtiva" name="integracaoAtiva" checked>
+                </div>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tela Suporte -->
+    <div id="suporte" class="hidden">
+        <div class="support-card">
+            <h3>Chamado Novo</h3>
+            <p>Descrição do chamado novo...</p>
+            <p class="status new">Novo</p>
+        </div>
+        
+        <div class="support-card">
+            <h3>Chamado em Atendimento</h3>
+            <p>Descrição do chamado em atendimento...</p>
+            <p class="status processing">Em Atendimento</p>
+        </div>
+        
+        <div class="support-card">
+            <h3>Chamado Não Resolvido</h3>
+            <p>Descrição do chamado não resolvido...</p>
+            <p class="status unresolved">Não Resolvido</p>
+        </div>
+    </div>
+    
+    <script src="admin-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar evento de clique para exibir a tela de Ajuda
+            document.getElementById('ajuda-link').addEventListener('click', function() {
+                showAjuda();
+            });
+        });
+
+        function showAjuda() {
+            // Ocultar outras seções e mostrar a seção de Ajuda
+            hideAllSections();
+            document.getElementById('ajuda').classList.remove('hidden');
+        }
+
+        function hideAllSections() {
+            // Esconder todas as seções
+            document.querySelectorAll('.content > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+        }
+    </script>
+
+<script>
+   // Função para exibir o pop-up de alerta
+function exibirAlerta() {
+    alert("Atualização do Sistema | 17-05-2024\n\n" +
+          "🌟 Novidade: Agora, ao clicar no Menu Suporte, você será redirecionado para a tela de Suporte. Todas as solicitações de suporte feitas através da Plataforma de Créditos de Nuvem serão exibidas diretamente no nosso painel.\n\n" +
+          "⚠️ Atenção: Todas as informações sobre as taxas estão disponíveis na tela Gerenciar Taxas.\n\n" +
+          "ℹ️ Importante: A documentação do sistema está sendo atualizada na tela Documentação! Basta clicar no botão acima de Documentação Completa do Sistema.");
+}
+
+// Chama a função para exibir o alerta quando a página carrega
+window.onload = exibirAlerta;
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Adicionar evento de clique para exibir a tela de Ajuda Configurações e Integrações
+        document.getElementById('ajuda-link').addEventListener('click', function() {
+            showAjuda();
+        });
+    });
+
+    function showAjuda() {
+        // Ocultar outras seções e mostrar a seção de Ajuda
+        hideAllSections();
+        document.getElementById('ajuda').classList.remove('hidden');
+    }
+
+    function hideAllSections() {
+        // Esconder todas as seções
+        document.querySelectorAll('.content > div').forEach(div => {
+            div.classList.add('hidden');
+        });
+    }
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar evento de clique para o link do menu Suporte
+    document.getElementById('suporte-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        // Mostrar a seção de suporte
+        document.getElementById('suporte').classList.remove('hidden');
+        // Esconder outras seções, se houver
+        hideOtherSections('suporte');
+    });
+
+    // Função para esconder outras seções
+    function hideOtherSections(currentSectionId) {
+        const sections = document.querySelectorAll('.content > div:not(#' + currentSectionId + ')');
+        sections.forEach(section => {
+            section.classList.add('hidden');
+        });
+    }
+});
+</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('createNewUserButton').addEventListener('click', function() {
+                showCreateUserForm();
+            });
+
+            document.getElementById('editExistingUserButton').addEventListener('click', function() {
+                showEditUserForm();
+            });
+
+            document.getElementById('deleteExistingUserButton').addEventListener('click', function() {
+                showDeleteUserForm();
+            });
+
+            // Adicionar lógica para preencher os campos do formulário de edição com as informações do usuário selecionado
+            document.getElementById('existingUserToEdit').addEventListener('change', function() {
+                const selectedUserId = this.value;
+                // Aqui você pode adicionar a lógica para buscar as informações do usuário com o ID selecionado
+                // e preencher os campos do formulário de edição com essas informações
+            });
+
+            // Adicionar lógica para alternar entre os botões de edição e salvar
+            document.getElementById('editUserButton').addEventListener('click', function() {
+                // Esconder o botão de edição
+                this.classList.add('hidden');
+                // Mostrar o botão de salvar
+                document.getElementById('saveEditedUserButton').classList.remove('hidden');
+            });
+
+            document.getElementById('saveEditedUserButton').addEventListener('click', function() {
+                // Aqui você pode adicionar a lógica para salvar as alterações do usuário
+                // Por enquanto, vamos apenas exibir uma mensagem
+                alert('Alterações do usuário salvas com sucesso!');
+                // Esconder o botão de salvar
+                this.classList.add('hidden');
+                // Mostrar o botão de edição novamente
+                document.getElementById('editUserButton').classList.remove('hidden');
+            });
+        });
+
+        function showCreateUserForm() {
+            // Esconder outros formulários se estiverem visíveis
+            hideAllForms();
+
+            // Exibir o formulário de criação de usuário
+            const createUserForm = document.getElementById('createUserForm');
+            createUserForm.classList.remove('hidden');
+        }
+
+        function showEditUserForm() {
+            // Esconder outros formulários se estiverem visíveis
+            hideAllForms();
+
+            // Exibir o formulário de edição de usuário
+            const editUserForm = document.getElementById('editUserForm');
+            editUserForm.classList.remove('hidden');
+        }
+
+        function showDeleteUserForm() {
+            // Esconder outros formulários se estiverem visíveis
+            hideAllForms();
+
+            // Exibir o formulário de exclusão de usuário
+            const deleteUserForm = document.getElementById('deleteUserForm');
+            deleteUserForm.classList.remove('hidden');
+        }
+
+        function hideAllForms() {
+            // Esconder todos os formulários de uma vez
+            const forms = document.querySelectorAll('.user-form');
+            forms.forEach(form => {
+                form.classList.add('hidden');
+            });
+        }
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Adicionar evento de clique para exibir a tela de Ajuda
+        document.getElementById('ajuda-link').addEventListener('click', function() {
+            showAjuda();
+        });
+
+        // Adicionar evento de clique para exibir a tela de Integrações
+        document.getElementById('integracoes-link').addEventListener('click', function() {
+            showIntegracoes();
+        });
+
+        // Adicionar evento de envio para lidar com o formulário de Integrações
+        document.getElementById('integracoesForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impedir o envio padrão do formulário
+            
+            // Obter os valores dos campos do formulário
+            const tipo = document.getElementById('integracaoTipo').value;
+            const nome = document.getElementById('integracaoNome').value;
+            const url = document.getElementById('integracaoURL').value;
+            const descricao = document.getElementById('integracaoDescricao').value;
+            const token = document.getElementById('integracaoToken').value;
+            const parametros = document.getElementById('integracaoParametros').value;
+            const ativa = document.getElementById('integracaoAtiva').checked;
+
+            // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+            // Por enquanto, vamos apenas exibir os valores dos campos
+            console.log('Tipo:', tipo);
+            console.log('Nome:', nome);
+            console.log('URL:', url);
+            console.log('Descrição:', descricao);
+            console.log('Token:', token);
+            console.log('Parâmetros:', parametros);
+            console.log('Ativa:', ativa);
+
+            // Exibir uma mensagem de sucesso
+            alert('Integração salva com sucesso!');
+        });
+    });
+
+    function showIntegracoes() {
+        // Ocultar outras seções e mostrar a seção de Integrações
+        hideAllSections();
+        document.getElementById('integracoes').classList.remove('hidden');
+    }
+
+    function hideAllSections() {
+        // Esconder todas as seções
+        document.querySelectorAll('.content > div').forEach(div => {
+            div.classList.add('hidden');
+        });
+    }
+</script>
+   
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar evento de clique para o link do FAQ
+    document.getElementById('faq-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        showFaq();
+    });
+});
+
+function showFaq() {
+    // Ocultar outras seções e mostrar a seção de FAQ
+    hideAllSections();
+    document.getElementById('faq').classList.remove('hidden');
+}
+</script>
+</body>
+</html>

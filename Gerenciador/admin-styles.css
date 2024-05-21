@@ -1,0 +1,308 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    min-height: 100vh; /* Garante que o corpo da página ocupe pelo menos toda a altura da janela de visualização */
+}
+
+.sidebar {
+    width: 300px; /* Aumenta a largura do sidebar */
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    height: 100%; /* Ocupa toda a altura disponível */
+    box-sizing: border-box;
+    position: fixed; /* Mantém o sidebar fixo durante o scroll */
+    left: 0; /* Alinha o sidebar à esquerda */
+    top: 0; /* Alinha o sidebar ao topo */
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #555;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 300px; /* Ajusta a margem esquerda para que o conteúdo não fique sob o sidebar */
+}
+
+.hidden {
+    display: none;
+}
+
+.tax-field,
+.client-field,
+.financial-field,
+.report-field,
+.access-field {
+    margin-bottom: 20px;
+}
+
+.tax-field label,
+.client-field label,
+.financial-field label,
+.report-field label,
+.access-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.tax-field input[type="text"],
+.client-field input[type="text"],
+.financial-field input[type="text"],
+.report-field input[type="text"],
+.access-field input[type="text"],
+.tax-field select,
+.client-field select,
+.financial-field select,
+.report-field select,
+.access-field select {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.tax-field button,
+.client-field button,
+.financial-field button,
+.report-field button,
+.access-field button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tax-field button:hover,
+.client-field button:hover,
+.financial-field button:hover,
+.report-field button:hover,
+.access-field button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Campos de formulário */
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-field input[type="text"],
+.form-field input[type="password"],
+.form-field input[type="email"],
+.form-field select {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-field button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-field button:hover {
+    background-color: #0056b3;
+}
+
+
+#integracoes {
+    margin-top: 20px;
+}
+
+.integracao-field {
+    margin-bottom: 20px;
+}
+
+.integracao-field label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.integracao-field input[type="text"],
+.integracao-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.integracao-field select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.integracao-field button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Verde do Bootstrap */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.integracao-field button:hover {
+    background-color: #218838; /* Verde escuro do Bootstrap */
+}
+
+.hidden {
+    display: none;
+}
+
+
+#ajuda {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 9999;
+}
+
+#ajuda .slides {
+    margin-top: 20px;
+}
+
+#ajuda .slide {
+    margin-bottom: 20px;
+}
+
+#ajuda .slide h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#ajuda .slide p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#ajuda .slide ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#ajuda .slide ul li {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#ajuda .popup-close:hover {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Estilos para os cards da tela de suporte */
+#suporte .support-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#suporte .support-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#suporte .support-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+#suporte .support-card .status {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#suporte .support-card .status.new {
+    color: #007bff; /* Azul para chamados novos */
+}
+
+#suporte .support-card .status.processing {
+    color: #ffc107; /* Amarelo para chamados em atendimento */
+}
+
+#suporte .support-card .status.unresolved {
+    color: #dc3545; /* Vermelho para chamados não resolvidos */
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049;
+}

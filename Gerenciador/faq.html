@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Sistema Administrativo</title>
+    <link rel="stylesheet" href="styles-faq.css">
+</head>
+<body>
+
+<div class="container">
+    <a href="admin.html" class="button">Voltar</a>
+
+
+    <h1>MANUAL DE USO  - Sistema Administrativo</h1>
+
+    <div class="question">
+        <h2>1. Introdução</h2>
+        <div class="answer">
+            <p>O Sistema Administrativo foi desenvolvido para facilitar a gestão interna da nossa empresa, oferecendo ferramentas avançadas para o gerenciamento eficiente de diversas áreas do negócio.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>2. Acesso ao Sistema</h2>
+        <div class="answer">
+            <p>Para acessar o sistema, os usuários autorizados devem fornecer suas credenciais de login. Após o login bem-sucedido, eles serão direcionados para o Dashboard.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>3. Visão Geral do Dashboard</h2>
+        <div class="answer">
+            <p>O Dashboard fornece uma visão consolidada das principais informações e métricas do negócio, incluindo gráficos de desempenho financeiro, estatísticas de clientes e outros dados relevantes.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>4. Gerenciamento de Clientes</h2>
+        <div class="answer">
+            <p>A tela de Gerenciamento de Clientes permite que os usuários visualizem, editem e adicionem informações sobre os clientes da empresa.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>5. Gestão Financeira</h2>
+        <div class="answer">
+            <p>Na seção de Gestão Financeira, os usuários podem acompanhar receitas, despesas, lucros e outras métricas financeiras essenciais.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>6. Relatórios Personalizados</h2>
+        <div class="answer">
+            <p>A funcionalidade de Relatórios Personalizados permite que os usuários criem relatórios personalizados para análise detalhada de diferentes aspectos do negócio.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>7. Controle de Acessos Administrativos</h2>
+        <div class="answer">
+            <p>Nesta tela, os administradores podem gerenciar as permissões de acesso dos usuários, controlando quem tem acesso a quais partes do sistema.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>8. Configurações Personalizadas</h2>
+        <div class="answer">
+            <p>Esta tela permite configurar integrações do sistema com outros serviços ou sistemas externos. Por meio dessas configurações, você pode automatizar processos, trocar dados entre sistemas e expandir a funcionalidade do seu sistema administrativo.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>9. Integrações com Créditos em Nuvem</h2>
+        <div class="answer">
+            <p>[Texto da Integrações com Créditos em Nuvem]</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>10. Suporte e Contato</h2>
+        <div class="answer">
+            <p>[Texto do Suporte e Contato]</p>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container">
+    <a href="admin.html" class="button">Voltar</a>
+
+
+    <h1>MANUAL DE USO  - Documentação Técnica</h1>
+
+    <div class="question">
+        <h2>1. Funcionalidade</h2>
+        <div class="answer">
+        <p>Utiliza o evento DOMContentLoaded para garantir que o código JavaScript seja executado após o carregamento completo do DOM.</p>
+        <p>Implementa um padrão de design de aplicativos da web conhecido como "Single Page Application (SPA)", onde conteúdos são carregados dinamicamente sem recarregar a página inteira.</p>
+        <p>Manipula a visibilidade da seção de ajuda através da adição e remoção da classe CSS hidden, uma prática comum para controle de estilo em aplicações web.</p>    
+    </div>
+    </div>
+
+    <div class="question">
+        <h2>2. Detalhes Técnicos</h2>
+        <div class="answer">
+            <p>A função showAjuda() encapsula a lógica de exibição da seção de ajuda, seguindo os princípios de modularidade e encapsulamento.</p>
+            <p>O método querySelectorAll('.content > div') utiliza um seletor CSS para selecionar todos os elementos div que são filhos diretos de elementos com a classe .content, demonstrando o uso eficiente de seletores CSS.</p>
+            <p>O uso do método forEach() para iterar sobre os elementos selecionados é uma prática moderna e concisa para manipulação de coleções em JavaScript.</p>
+        </div>
+    </div>
+
+    <div class="question">
+        <h2>3. Exibição da Tela de Suporte</h2>
+        <div class="answer">
+            <p><strong>Funcionalidade:</strong></p>
+            <p>Introduz o conceito de prevenção do comportamento padrão de um evento através do método <code>event.preventDefault()</code>, usado para impedir que o navegador execute a ação padrão de um elemento HTML (neste caso, seguir o link).</p>
+            <p>Utiliza a função <code>hideOtherSections(currentSectionId)</code> para ocultar outras seções de conteúdo, proporcionando uma experiência de usuário mais coesa e intuitiva.</p>
+            <p><strong>Detalhes Técnicos:</strong></p>
+            <p>A função <code>hideOtherSections()</code> demonstra o uso de seletores de consulta mais avançados, combinando seletores CSS e interpolação de string para ocultar elementos específicos com base em seu ID.</p>
+            <p>A utilização de <code>querySelectorAll</code> seguida de <code>forEach</code> para ocultar elementos é uma abordagem eficiente e elegante para manipulação de múltiplos elementos.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <h2>4. Gerenciamento de Usuários</h2>
+        <div class="answer">
+            <p><strong>Funcionalidade:</strong></p>
+            <p>Implementa uma abordagem de manipulação de formulários dinâmica, onde diferentes formulários são exibidos com base na interação do usuário.</p>
+            <p>Introduz a manipulação de eventos de formulário, como cliques em botões e seleção de opções, para fornecer uma experiência interativa ao usuário.</p>
+            <p><strong>Detalhes Técnicos:</strong></p>
+            <p>O uso de IDs únicos para cada elemento HTML permite um acesso eficiente a esses elementos por meio do método <code>getElementById()</code>, garantindo uma seleção direta e rápida.</p>
+            <p>A função <code>hideAllForms()</code> utiliza uma classe compartilhada (<code>user-form</code>) para agrupar todos os formulários de usuário, tornando mais fácil ocultá-los de uma vez.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <h2>5.Gerenciamento de Integrações</h2>
+        <div class="answer">
+            <p><strong>Funcionalidade:</strong></p>
+            <p>Implementa a lógica para envio de dados de integração para o servidor, introduzindo conceitos de comunicação assíncrona e manipulação de eventos de formulário.</p>
+            <p><strong>Detalhes Técnicos:</strong></p>
+            <p>O método <code>addEventListener</code> é usado para adicionar um ouvinte de eventos ao evento <code>submit</code>, que é acionado quando o formulário é enviado.</p>
+            <p>O uso do método <code>preventDefault()</code> dentro do evento de envio de formulário previne o comportamento padrão do navegador, evitando o recarregamento da página.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <h2>6.Exibição da Tela de FAQ</h2>
+        <div class="answer">
+            <p><strong>Funcionalidade:</strong></p>
+            <p>Demonstra outra abordagem para manipulação de eventos de clique em links, permitindo a exibição da seção de FAQ sem recarregar a página.</p>
+            <p><strong>Detalhes Técnicos:</strong></p>
+            <p>A função <code>showFaq()</code> utiliza a mesma abordagem de manipulação de classes CSS para controlar a visibilidade da seção de FAQ, seguindo uma consistência de design em toda a aplicação.</p>
+            <p>A prevenção do comportamento padrão do link (<code>event.preventDefault()</code>) garante que a navegação não ocorra quando o link é clicado, mantendo a interação do usuário dentro da aplicação.</p>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container">
+    <a href="admin.html" class="button">Voltar</a>
+
+    <h1>MANUAL DE USO  - Documentação Taxas</h1>
+
+    <div class="question">
+        <h2>1. Explicação das Taxas</h2>
+        <div class="answer">
+            <p><strong>Funcionalidade:</strong></p>
+            <p>Fornece uma explicação detalhada de cada taxa utilizada no sistema de gerenciamento financeiro, permitindo uma melhor compreensão e gestão das transações.</p>
+            <p><strong>Detalhes Técnicos:</strong></p>
+            <p>Cada taxa é explicada individualmente para fornecer informações sobre sua aplicação e impacto nas transações financeiras realizadas pela plataforma.</p>
+            <!-- Explicação das taxas -->
+            <div id="taxas" class="hidden">
+                <h3>Explicação das Taxas:</h3>
+                <ul>
+                    <li><strong>Taxa de Conversão Real para Dólar:</strong> Esta taxa representa o valor de conversão do Real para o Dólar, utilizado para calcular transações internacionais.</li>
+                    <li><strong>Impostos Brasileiros para Conversão em Dólar:</strong> Esses impostos referem-se à taxa total de impostos brasileiros aplicados sobre a conversão de Reais para Dólares, incluindo PIS, COFINS, CSLL e IR.</li>
+                    <li><strong>Taxa de 0.2% da Foxbit:</strong> Esta taxa é cobrada pela plataforma Foxbit e representa uma taxa fixa de 0.2% sobre o valor total da transação.</li>
+                    <li><strong>Impostos sobre Créditos AWS:</strong> Esses impostos referem-se aos tributos aplicados sobre a compra de créditos AWS, incluindo PIS, COFINS, CSLL e IR.</li>
+                    <li><strong>Taxa de 5%:</strong> Esta taxa é uma porcentagem fixa de 5% aplicada sobre o valor total da transação.</li>
+                    <li><strong>Impostos Brasileiros + 5%:</strong> Essa taxa representa a soma dos impostos brasileiros e da taxa de serviço de 5% sobre o valor total da transação.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script-faq.js"></script>
+
+</body>
+</html>
+
+
+
+
